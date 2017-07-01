@@ -17,10 +17,10 @@
     <body>
 
         <script>
-
-        création d'un tableau dictionnaire de mot
-        faire un random pour tirer une valeur qu'on stockera dans la variable mot
-        créer également une string variable avec des tirets de la longueur du mot appelé hiddenWord
+/*
+        OK création d'un tableau dictionnaire de mot
+        OK faire un random pour tirer une valeur qu'on stockera dans la variable mot
+        OK créer également une string variable avec des tirets de la longueur du mot appelé hiddenWord
         mettre une boucle while qui précisera que tant que la variable attempt != 0 on continuera
         faire un prompt demandant une lettre à jouer
         mettre une boucle for avec i = 0; i < mot.length; i ++
@@ -28,7 +28,17 @@
         il faudra mettre la lettre entrée par le joueur à la place du tiret dans hiddenword avec replace
         sinon il faudra faire un attempt--
         et un push dans un tableau avec le recap des lettres utilisés.
+*/
 
+        var tableau = ["blanc", "bizarre", "test"];
+        var word = tableau[Math.floor(Math.random()*tableau.length)];
+        var hiddenWordTab = [];
+        for (i= 0; i< word.length; i++) {
+          hiddenWordTab.push("-");}
+
+        var hiddenWord = hiddenWordTab.join('');
+        console.log(hiddenWord);
+        console.log(word);
         </script>
     </body>
 </html>
