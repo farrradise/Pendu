@@ -17,18 +17,19 @@
     <body>
 
         <script>
-/*
+        /*
+
         OK création d'un tableau dictionnaire de mot
         OK faire un random pour tirer une valeur qu'on stockera dans la variable mot
         OK créer également une string variable avec des tirets de la longueur du mot appelé hiddenWord
-        mettre une boucle while qui précisera que tant que la variable attempt != 0 on continuera
-        faire un prompt demandant une lettre à jouer
-        mettre une boucle for avec i = 0; i < mot.length; i ++
+        OK mettre une boucle while qui précisera que tant que la variable attempt != 0 on continuera
+        OK faire un prompt demandant une lettre à jouer
+        OK mettre une boucle for avec i = 0; i < mot.length; i ++
         dans cette boucle mettre condition if si la lettre entrée = la lettre du mot
         il faudra mettre la lettre entrée par le joueur à la place du tiret dans hiddenword avec replace
-        sinon il faudra faire un attempt--
-        et un push dans un tableau avec le recap des lettres utilisés.
-*/
+        OK sinon il faudra faire un attempt--
+        OK et un push dans un tableau avec le recap des lettres utilisés.
+        */
 
         var tableau = ["blanc", "bizarre", "test"];
         var word = tableau[Math.floor(Math.random()*tableau.length)];
@@ -37,8 +38,32 @@
           hiddenWordTab.push("-");}
 
         var hiddenWord = hiddenWordTab.join('');
-        console.log(hiddenWord);
+        var attempt = 10;
+        var letter = "";
+        var usedLetter = [];
+        var hiddenWord2 = "";
+        //console.log(word.charAt(3));
         console.log(word);
+
+
+        while (attempt !== 0) {
+          letter = prompt("Renseignez une lettre svp");
+          for (i = 0; i < word.length ; i++) {
+
+          if (letter == word.charAt(i) ) {
+
+            console.log("ca roule");
+            hiddenWord2 = hiddenWord.replace(hiddenWord.charAt(i), letter);
+            console.log(hiddenWord2);
+            console.log(i);
+          } else {
+            // remettre un if pour eviter de tester des lettres sur tout le mot si déjà utilisé
+            attempt--;
+            usedLetter.push(letter);
+            console.log(usedLetter);
+          }
+         }
+        }
         </script>
     </body>
 </html>
