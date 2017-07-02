@@ -76,6 +76,67 @@
       }
      }
     }
+
+
+    /*
+
+OK création d'un tableau dictionnaire de mot
+OK faire un random pour tirer une valeur qu'on stockera dans la variable mot
+OK créer également une string variable avec des tirets de la longueur du mot appelé hiddenWord
+OK mettre une boucle while qui précisera que tant que la variable attempt != 0 on continuera
+OK faire un prompt demandant une lettre à jouer
+OK mettre une boucle for avec i = 0; i < mot.length; i ++
+OK dans cette boucle mettre condition if si la lettre entrée = la lettre du mot
+OK il faudra mettre la lettre entrée par le joueur à la place du tiret dans hiddenword avec replace
+OK sinon il faudra faire un attempt--
+OK et un push dans un tableau avec le recap des lettres utilisés.
+*/
+
+var tableau = ["blanc", "bizar", "testi"];
+var word = tableau[Math.floor(Math.random()*tableau.length)];
+var wordTab = word.split("");
+var hiddenWordTab2 = ["-", "-", "-", "-", "-"];
+var attempt = 10;
+var letter = "";
+var usedLetter = [""];
+console.log(wordTab);
+console.log(hiddenWordTab2);
+
+
+
+
+while (attempt !== 0) {
+  letter = prompt("Renseignez une lettre svp");
+
+  for (i = 0; i < wordTab.length ; i++) {
+
+    if (letter === wordTab[i] ) {
+    console.log("bien tu as trouvé");
+    var change = hiddenWordTab2[i].replace(hiddenWordTab2[i], letter);
+    console.log(hiddenWordTab2);
+      hiddenWordTab2[i] = change;
+    console.log(hiddenWordTab2);
+  } else {
+
+       usedLetter.push(letter);
+    attempt--;
+    for (q= 0; q < usedLetter.length-1; q++) {
+
+
+         if (letter == usedLetter[q]) {
+            usedLetter.pop();
+            attempt++;
+       }
+
+     }
+  }
+
+  }
+   console.log(usedLetter);
+     console.log("il ne vous reste plus que "+ attempt + " essais !");
+
+}
+
         </script>
     </body>
 </html>
