@@ -92,6 +92,7 @@ OK sinon il faudra faire un attempt--
 OK et un push dans un tableau avec le recap des lettres utilisés.
 */
 
+
 var tableau = ["blanc", "bizar", "testi"];
 var word = tableau[Math.floor(Math.random()*tableau.length)];
 var wordTab = word.split("");
@@ -115,7 +116,7 @@ while (attempt !== 0) {
     var change = hiddenWordTab2[i].replace(hiddenWordTab2[i], letter);
     console.log(hiddenWordTab2);
       hiddenWordTab2[i] = change;
-    console.log(hiddenWordTab2);
+    alert(hiddenWordTab2);
   } else {
 
        usedLetter.push(letter);
@@ -132,10 +133,11 @@ while (attempt !== 0) {
   }
 
   }
-   console.log(usedLetter);
-     console.log("il ne vous reste plus que "+ attempt + " essais !");
+     alert("lettres utilisées : \n" + usedLetter);
+     alert("il ne vous reste plus que "+ attempt + " essais !");
 
 }
+
 
         </script>
     </body>
