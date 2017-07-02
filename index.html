@@ -19,51 +19,63 @@
         <script>
         /*
 
-        OK création d'un tableau dictionnaire de mot
-        OK faire un random pour tirer une valeur qu'on stockera dans la variable mot
-        OK créer également une string variable avec des tirets de la longueur du mot appelé hiddenWord
-        OK mettre une boucle while qui précisera que tant que la variable attempt != 0 on continuera
-        OK faire un prompt demandant une lettre à jouer
-        OK mettre une boucle for avec i = 0; i < mot.length; i ++
-        dans cette boucle mettre condition if si la lettre entrée = la lettre du mot
-        il faudra mettre la lettre entrée par le joueur à la place du tiret dans hiddenword avec replace
-        OK sinon il faudra faire un attempt--
-        OK et un push dans un tableau avec le recap des lettres utilisés.
-        */
+    OK création d'un tableau dictionnaire de mot
+    OK faire un random pour tirer une valeur qu'on stockera dans la variable mot
+    OK créer également une string variable avec des tirets de la longueur du mot appelé hiddenWord
+    OK mettre une boucle while qui précisera que tant que la variable attempt != 0 on continuera
+    OK faire un prompt demandant une lettre à jouer
+    OK mettre une boucle for avec i = 0; i < mot.length; i ++
+    dans cette boucle mettre condition if si la lettre entrée = la lettre du mot
+    il faudra mettre la lettre entrée par le joueur à la place du tiret dans hiddenword avec replace
+    OK sinon il faudra faire un attempt--
+    OK et un push dans un tableau avec le recap des lettres utilisés.
+    */
 
-        var tableau = ["blanc", "bizarre", "test"];
-        var word = tableau[Math.floor(Math.random()*tableau.length)];
-        var hiddenWordTab = [];
-        for (i= 0; i< word.length; i++) {
-          hiddenWordTab.push("-");}
+    var tableau = ["blanc", "bizar", "testi"];
+    var word = tableau[Math.floor(Math.random()*tableau.length)];
+    var wordTab = word.split("");
+    var hiddenWordTab = [];
+    var hiddenWordTab2 = ["-", "-", "-", "-", "-"];
+    for (i= 0; i< wordTab.length; i++) {
+      hiddenWordTab.push("-");}
 
-        var hiddenWord = hiddenWordTab.join('');
-        var attempt = 10;
-        var letter = "";
-        var usedLetter = [];
-        var hiddenWord2 = "";
-        //console.log(word.charAt(3));
-        console.log(word);
+    //var hiddenWord = hiddenWordTab.join('');
+    var attempt = 10;
+    var letter = "";
+    var usedLetter = [];
+    //var hiddenWord2 = "";
+    //console.log(word.charAt(3));
+    console.log(wordTab);
+    console.log(hiddenWordTab2);
 
 
-        while (attempt !== 0) {
-          letter = prompt("Renseignez une lettre svp");
-          for (i = 0; i < word.length ; i++) {
+    while (attempt !== 0) {
+      letter = prompt("Renseignez une lettre svp");
 
-          if (letter == word.charAt(i) ) {
+      for (i = 0; i < wordTab.length ; i++) {
+    //    console.log(letter);
 
-            console.log("ca roule");
-            hiddenWord2 = hiddenWord.replace(hiddenWord.charAt(i), letter);
-            console.log(hiddenWord2);
-            console.log(i);
-          } else {
-            // remettre un if pour eviter de tester des lettres sur tout le mot si déjà utilisé
+        if (letter === wordTab[i] ) {
+    //    console.log(word[i]);
+        console.log("bien tu as trouvé");
+        var change = hiddenWordTab2[i].replace(hiddenWordTab2[i], letter);
+        console.log(hiddenWordTab2);
+          hiddenWordTab2[i] = change;
+        console.log(hiddenWordTab2);
+      } else {
+          for (j=0; j < usedLetter.length; j++) {
+            if (letter !== usedLetter[j]) {
             attempt--;
             usedLetter.push(letter);
-            console.log(usedLetter);
+            } else {
+           console.log("lettre déjà utilisée");
+            }
+           console.log(usedLetter);
+           console.log("il ne vous reste plus que "+ attempt + " essais !");
           }
-         }
-        }
+      }
+     }
+    }
         </script>
     </body>
 </html>
